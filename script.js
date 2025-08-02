@@ -45,7 +45,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Funcionalidade da setinha de scroll (scroll indicator)
     const scrollIndicator = document.querySelector('.scroll-indicator');
     if (scrollIndicator) {
-        scrollIndicator.addEventListener('click', function() {
+        // Função para fazer scroll para a próxima seção
+        function scrollToStorySection() {
             const storySection = document.querySelector('#story');
             if (storySection) {
                 const headerOffset = 80;
@@ -57,20 +58,34 @@ document.addEventListener('DOMContentLoaded', function() {
                     behavior: 'smooth'
                 });
             }
+        }
+
+        // Evento de clique (desktop e mobile)
+        scrollIndicator.addEventListener('click', scrollToStorySection);
+        
+        // Evento touch específico para mobile
+        scrollIndicator.addEventListener('touchstart', function(e) {
+            e.preventDefault(); // Previne comportamentos padrão
+            scrollToStorySection();
         });
 
         // Adicionar cursor pointer para indicar que é clicável
         scrollIndicator.style.cursor = 'pointer';
         
-        // Efeito de hover sutil
-        scrollIndicator.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-5px)';
-            this.style.transition = 'transform 0.3s ease';
-        });
+        // Melhorar acessibilidade para mobile
+        scrollIndicator.style.touchAction = 'manipulation';
         
-        scrollIndicator.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-        });
+        // Efeito de hover sutil (apenas para desktop)
+        if (!('ontouchstart' in window)) {
+            scrollIndicator.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+                this.style.transition = 'transform 0.3s ease';
+            });
+            
+            scrollIndicator.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        }
     }
 
     // Navbar background on scroll com efeito glassmorphism

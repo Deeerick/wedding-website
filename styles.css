@@ -325,8 +325,9 @@ body {
     font-family: 'Cinzel', serif;
     font-size: 1.2rem;
     font-weight: 600;
-    color: var(--accent-color);
+    color: var(--white);
     margin-bottom: 3rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .date-ornament {
@@ -341,6 +342,14 @@ body {
     transform: translateX(-50%);
     animation: bounce 2s infinite;
     cursor: pointer;
+    padding: 1rem;
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .scroll-indicator i {
