@@ -42,6 +42,37 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Funcionalidade da setinha de scroll (scroll indicator)
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    if (scrollIndicator) {
+        scrollIndicator.addEventListener('click', function() {
+            const storySection = document.querySelector('#story');
+            if (storySection) {
+                const headerOffset = 80;
+                const elementPosition = storySection.offsetTop;
+                const offsetPosition = elementPosition - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+
+        // Adicionar cursor pointer para indicar que é clicável
+        scrollIndicator.style.cursor = 'pointer';
+        
+        // Efeito de hover sutil
+        scrollIndicator.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-5px)';
+            this.style.transition = 'transform 0.3s ease';
+        });
+        
+        scrollIndicator.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    }
+
     // Navbar background on scroll com efeito glassmorphism
     window.addEventListener('scroll', function() {
         const navbar = document.querySelector('.navbar');
