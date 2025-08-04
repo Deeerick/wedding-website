@@ -36,14 +36,7 @@ Site de casamento elegante no estilo grego clássico, criado para celebrar e ete
 
 ## 🚀 Como Executar
 
-1. Clone o repositório:
-\`\`\`bash
-git clone https://github.com/[SEU-USUARIO]/tatianne-derick-wedding.git
-\`\`\`
-
-2. Abra o arquivo \`index.html\` em seu navegador
-
-Ou acesse diretamente: **[Link do GitHub Pages será gerado após deploy]**
+Acesse diretamente: **[Clique aqui](https://deeerick.github.io/wedding-website/)**
 
 ## 📸 Fotos
 
